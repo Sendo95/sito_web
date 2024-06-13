@@ -1,0 +1,35 @@
+# Framework principale per l'applicazione web
+fastapi==0.111.0
+
+# ORM per la gestione del database
+sqlalchemy==1.4.25
+
+# Libreria per l'integrazione tra Pydantic e SQLAlchemy
+pydantic==1.8.2
+
+# Driver per PostgreSQL (sostituire con il driver del database che stai utilizzando)
+psycopg2-binary==2.9.1
+
+# Libreria per la sicurezza e la gestione delle password
+passlib[bcrypt]==1.7.4
+
+# Libreria per la gestione dei JSON Web Token (JWT)
+python-jose==3.3.0
+PyJWT==2.4.0
+
+# Strumenti per il testing
+pytest==6.2.4
+pytest-asyncio==0.14.0
+httpx==0.23.0
+
+# Libreria per la migrazione del database
+alembic==1.6.5
+
+# Gestione delle variabili d'ambiente
+python-dotenv==0.19.0
+
+# Libreria per il controllo delle cors
+fastapi-utils==0.2.1
+
+# Libreria per le date e i tempi
+python-dateutil==2.8.2
