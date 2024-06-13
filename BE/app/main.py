@@ -13,4 +13,5 @@ app.include_router(api_v1_router, prefix="/api/v1")
 
 @app.get("/")
 def read_root():
-    return {"message": "Welcome to the FastAPI application!"}
+    print("fatta la get root")
+    return {"message": "funziona"}
