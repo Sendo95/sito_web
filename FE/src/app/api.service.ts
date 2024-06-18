@@ -12,7 +12,7 @@ export class ApiService {
   constructor(private httpClient: HttpClient) { }
 
   getApi(): Observable<any> {
-    return this.httpClient.get<any>(this.apiUrl + '/')
+    return this.httpClient.get<any>(this.apiUrl + '/api/v1/prova')
   }
   
 }

@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TemplateSitoComponent } from './template-sito/template-sito.component';
 import { HeaderComponent } from './header/header.component';
+import { ModaleAccessoComponent } from './modale-accesso/modale-accesso.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TemplateSitoComponent,
-    HeaderComponent
+    HeaderComponent,
+    ModaleAccessoComponent
   ],
   imports: [
     BrowserModule,
