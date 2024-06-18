@@ -1,12 +1,8 @@
-"""
-Questo file contiene la configurazione dell'applicazione. Utilizziamo Pydantic per gestire le variabili d'ambiente
-e garantire che i valori di configurazione siano validi.
-"""
 
-from pydantic import BaseSettings, AnyHttpUrl, PostgresDsn, validator
+from pydantic import AnyHttpUrl, validator
 from typing import List, Optional, Union
 
-class Settings(BaseSettings):
+class Settings():
     """
     La classe Settings utilizza Pydantic per definire e validare le variabili d'ambiente necessarie per l'applicazione.
     """
@@ -31,7 +27,7 @@ class Settings(BaseSettings):
         raise ValueError(v)
 
     # Configurazione del database
-    SQLALCHEMY_DATABASE_URI: Optional[PostgresDsn] = None
+    SQLALCHEMY_DATABASE_URI: Optional[str] = None
 
     @validator("SQLALCHEMY_DATABASE_URI", pre=True)
     def assemble_db_connection(cls, v: Optional[str], values: dict) -> str:
@@ -40,13 +36,7 @@ class Settings(BaseSettings):
         """
         if isinstance(v, str):
             return v
-        return PostgresDsn.build(
-            scheme="postgresql",
-            user=values.get("POSTGRES_USER"),
-            password=values.get("POSTGRES_PASSWORD"),
-            host=values.get("POSTGRES_SERVER"),
-            path=f"/{values.get('POSTGRES_DB') or ''}",
-        )
+        return f"postgresql://{values.get('POSTGRES_USER')}:{values.get('POSTGRES_PASSWORD')}@{values.get('POSTGRES_SERVER')}/{values.get('POSTGRES_DB')}"
 
     # Variabili d'ambiente per il database
     POSTGRES_SERVER: str
@@ -58,5 +48,8 @@ class Settings(BaseSettings):
         """
         Configurazione per Pydantic. Specifica che le variabili d'ambiente devono essere lette dal file .env.
         """
+        env_file = ".env"
         case_sensitive = True
-    
+
+# Creazione di un'istanza di Settings
+settings = Settings()

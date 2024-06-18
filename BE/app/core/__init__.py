@@ -2,7 +2,7 @@
 Questo file rende la cartella 'core' un modulo Python e può essere utilizzato per centralizzare le configurazioni comuni
 e le utility che verranno utilizzate in altre parti del progetto.
 """
-
+'''
 # Importiamo le configurazioni dal file config.py
 from app.core.config import settings
 
@@ -34,3 +34,4 @@ logger = logging.getLogger(__name__)
 logger.info("Core module initialized")
 
 # Aggiungi altre inizializzazioni o configurazioni che ritieni necessarie
+'''
