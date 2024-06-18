@@ -6,14 +6,11 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
+  private apiUrl = 'http://127.0.0.1:4200/api/v1';
 
-  //private apiUrl = 'http://localhost:8000'
+  constructor(private httpClient: HttpClient) {}
 
-  //constructor(private httpClient: HttpClient) { }
-
-  //getApi(): Observable<any> {
-    //return this.httpClient.get<any>(this.apiUrl + '/')
-  //}
-
-  
+  getApi(): Observable<any> {
+    return this.httpClient.get<any>(`${this.apiUrl}/prova`);
+  }
 }
