@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ApiService } from '../api.service';
 
 @Component({
   selector: 'app-header',
@@ -7,11 +8,21 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
+  constructor(private apiService : ApiService){}
+
   loginButton() {
-    console.log('cliccato') 
+    //this.apiService.getApi().subscribe(
+      //response =>{
+        //this.apiService = response;
+      //},
+      //error => {
+        //console.error(error)
+      //}
+    //)
+    console.log("Accesso")
   }
   registerButton() {
-
+    
   }
 
 }
