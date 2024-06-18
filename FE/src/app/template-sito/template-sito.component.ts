@@ -11,14 +11,17 @@ export class TemplateSitoComponent implements OnInit{
   constructor(private apiService : ApiService){}
 
   ngOnInit(){
+    
+  }
+  bottone(){
     this.apiService.getApi().subscribe(
       response =>{
         this.apiService = response;
+        console.log(response);
       },
       error => {
         console.error(error)
       }
     )
   }
-
 }
