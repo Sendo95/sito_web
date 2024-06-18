@@ -12,6 +12,6 @@ export class ModaleAccessoComponent implements OnInit{
 
   }
   openModale(){
-    
+
   }
 }

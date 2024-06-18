@@ -11,7 +11,7 @@ describe('ModaleAccessoComponent', () => {
       declarations: [ModaleAccessoComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(ModaleAccessoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

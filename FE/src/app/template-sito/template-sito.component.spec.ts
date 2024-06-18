@@ -11,7 +11,7 @@ describe('TemplateSitoComponent', () => {
       declarations: [TemplateSitoComponent]
     })
     .compileComponents();
-    
+
     fixture = TestBed.createComponent(TemplateSitoComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

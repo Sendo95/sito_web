@@ -21,7 +21,7 @@ export class TemplateSitoComponent implements OnInit{
       },
       error => {
         console.error(error)
-      }
-    )
-  }
+      }
+    )
+  }
 }

@@ -4,7 +4,7 @@ from fastapi import APIRouter
 from app.routes.r_user import router as user_router
 from app.routes.r_item import router as item_router
 from app.routes.r_auth import router as auth_router
-from app.routes.r_prova import router as prova_router  # Importa il router per /prova
+from app.routes.r_prova import router as prova_router
 
 # Creiamo un router principale per la versione 1 dell'API
 api_v1_router = APIRouter()
