@@ -1,27 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../api.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-template-sito',
   templateUrl: './template-sito.component.html',
   styleUrl: './template-sito.component.css'
 })
-export class TemplateSitoComponent implements OnInit{
+export class TemplateSitoComponent {
 
-  constructor(private apiService : ApiService){}
+  constructor() { }
 
-  ngOnInit(){
-    
+  onClick() {
+    console.log('cliccato')
   }
-  bottone(){
-    this.apiService.getApi().subscribe(
-      response =>{
-        this.apiService = response;
-        console.log(response);
-      },
-      error => {
-        console.error(error)
-      }
-    )
-  }
+
 }
