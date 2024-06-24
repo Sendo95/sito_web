@@ -1,0 +1,36 @@
+<div class="custom-modal" @fadeInOut>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Login</h2>
+          <button type="button" class="close" aria-label="Close" (click)="closeDialog()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="onAccedi()" #loginForm="ngForm">
+            <mat-form-field>
+              <input matInput type="email" placeholder="Email" [(ngModel)]="email" name="email" required>
+              <mat-error *ngIf="loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)">
+                Email mancante
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput type="password" placeholder="Password" [(ngModel)]="password" name="password" required>
+              <mat-error *ngIf="loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)">
+                Password mancante
+              </mat-error>
+            </mat-form-field>
+            <div class="modal-button">
+            <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.form.valid">Accedi</button>&nbsp;
+            <button mat-raised-button color="primary" type="submit" (click)="onRegistrati()">Regisrati</button>
+            </div>
+            <div class="additional-links">
+                <a href="/" (click)="passwordDimenticata()">Password dimenticata?</a>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

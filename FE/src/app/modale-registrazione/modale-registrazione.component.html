@@ -1,0 +1,45 @@
+<div class="custom-modal" @fadeInOut>
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Registrati</h2>
+          <button type="button" class="close" aria-label="Close" (click)="closeDialog()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form (ngSubmit)="onRegistrati()" #RegisterForm="ngForm">
+            <mat-form-field>
+                <input matInput type="name" placeholder="Nome*" [(ngModel)]="name" name="name" required>
+                <mat-error *ngIf="RegisterForm.controls['name'].invalid && (RegisterForm.controls['name'].dirty || RegisterForm.controls['name'].touched)">
+                    Campo obbligatorio
+                </mat-error>
+              </mat-form-field>
+              <mat-form-field>
+                <input matInput type="surname" placeholder="Cognome*" [(ngModel)]="surname" name="surname" required>
+                <mat-error *ngIf="RegisterForm.controls['surname'].invalid && (RegisterForm.controls['surname'].dirty || RegisterForm.controls['surname'].touched)">
+                    Campo obbligatorio
+                </mat-error>
+              </mat-form-field>
+            <mat-form-field>
+              <input matInput type="email" placeholder="Email*" [(ngModel)]="email" name="email" required>
+              <mat-error *ngIf="RegisterForm.controls['email'].invalid && (RegisterForm.controls['email'].dirty || RegisterForm.controls['email'].touched)">
+                Campo obbligatorio
+            </mat-error>
+            </mat-form-field>
+            <mat-form-field>
+              <input matInput type="password" placeholder="Password*" [(ngModel)]="password" name="password" required>
+              <mat-error *ngIf="RegisterForm.controls['password'].invalid && (RegisterForm.controls['password'].dirty || RegisterForm.controls['password'].touched)">
+                Campo obbligatorio
+            </mat-error>
+            </mat-form-field>
+            <div class="modal-button">
+            <button mat-raised-button color="primary" type="submit" [disabled]="!RegisterForm.form.valid">Registrati</button>&nbsp;
+            <button mat-raised-button color="primary" type="submit" (click)="onAccedi()">Accedi</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

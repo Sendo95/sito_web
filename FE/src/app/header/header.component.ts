@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ModaleAccessoComponent } from '../modale-accesso/modale-accesso.component';
+import { ModaleRegistrazioneComponent } from '../modale-registrazione/modale-registrazione.component';
 
 @Component({
   selector: 'app-header',
@@ -8,25 +11,42 @@ import { ApiService } from '../api.service';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor(private apiService: ApiService) {}
+  constructor(private apiService: ApiService,
+              public dialog: MatDialog) {}
 
   ngOnInit(): void {
-    console.log('on init');
+    
   }
 
-  loginButton(): void {
-    this.apiService.getApi().subscribe(
+  loginButton() {
+    /*this.apiService.getApi().subscribe(
       response => {
         console.log('API response:', response);
       },
       error => {
         console.error('API error:', error);
       }
-    );
-    console.log('Accesso 2');
+    );*/
+    
+    //al click mi apre la modale
+    const loginModal = this.dialog.open(ModaleAccessoComponent, {
+      width: '400px'
+    });
+
+    loginModal.afterClosed().subscribe(result => {
+      console.log('Modal chiuso');
+    });
+    
   }
 
-  registerButton(): void {
-    console.log('Registrati button clicked');
+  registerButton() {
+    //al click mi apre la modale
+    const registerModal = this.dialog.open(ModaleRegistrazioneComponent, {
+      width: '400px'
+    });
+
+    registerModal.afterClosed().subscribe(result => {
+      console.log('Modal chiuso');
+    });
   }
 }
